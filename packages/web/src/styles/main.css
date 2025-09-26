@@ -1,0 +1,315 @@
+body {
+  /* margin: 0; */
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  background-color: #f8f9fa;
+  color: #3C4858;
+}
+
+
+
+/* -- LAYOUT UTAMA -- */
+.dashboard-layout {
+  /* position: relative; */
+}
+
+.main-panel {
+  /* width: calc(100%); */
+
+    margin-left: 0;
+    width: 100%;
+    transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1); /* Transisi lebih halus */
+}
+
+.dashboard-content {
+  padding: 30px 15px;
+  flex-grow: 1;
+}
+
+/* -- SIDEBAR -- */
+.sidebar {
+  width: 260px;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  color: #3C4858;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
+}
+
+.sidebar-header {
+  padding: 18px 20px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+  font-size: 18px;
+  font-weight: 500;
+  color: #3C4858;
+  cursor: pointer; /* Tambahkan baris ini */
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  margin: 10px 15px 0;
+  border-radius: 3px;
+  padding: 10px 15px;
+  color: #3C4858;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.sidebar-nav a:hover {
+  background-color: rgba(200, 200, 200, 0.2);
+}
+
+.sidebar-nav a.active {
+  background-color: #9c27b0; /* Warna ungu seperti di gambar */
+  color: white;
+  box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(156,39,176,.4);
+}
+
+.sidebar-nav a.active .icon,
+.sidebar-nav a.active .text {
+  color: white;
+}
+
+.sidebar-nav .icon {
+  margin-right: 15px;
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  color: #3C4858;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sidebar-nav .text {
+  transition: opacity 0.3s;
+}
+
+
+/* -- HEADER -- */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 15px;
+  background-color: transparent;
+}
+
+.header-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  color: #555;
+}
+
+.header-search {
+  display: flex;
+  align-items: center;
+}
+
+.header-search input {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 5px 0;
+  outline: none;
+  transition: border-bottom-color 0.2s;
+}
+.header-search input:focus {
+  border-bottom-color: #9c27b0;
+}
+
+.header-search button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+/* -- ROW & CARDS LAYOUT -- */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px;
+  margin-bottom: 30px;
+}
+
+/* -- STATS CARD -- */
+.stats-card {
+  flex: 1 1 calc(25% - 30px);
+  margin: 0 15px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  position: relative;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.stats-card-icon {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: -20px;
+  left: 15px;
+  border-radius: 3px;
+  color: white;
+  font-size: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(0,0,0,.4);
+}
+.stats-card-icon.orange { background: linear-gradient(60deg, #ffa726, #fb8c00); box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(255,152,0,.4); }
+.stats-card-icon.green { background: linear-gradient(60deg, #66bb6a, #43a047); box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(76,175,80,.4); }
+.stats-card-icon.red { background: linear-gradient(60deg, #ef5350, #e53935); box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(244,67,54,.4); }
+.stats-card-icon.blue { background: linear-gradient(60deg, #26c6da, #00acc1); box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(0,188,212,.4); }
+
+.stats-card-content {
+  text-align: right;
+  padding: 15px;
+  padding-top: 10px;
+  flex-grow: 1;
+}
+
+.stats-card-label {
+  margin: 0;
+  color: #999;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.stats-card-value {
+  margin: 5px 0;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.stats-card-footer {
+  border-top: 1px solid #eee;
+  padding: 10px 15px;
+  color: #999;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+.stats-card-footer p { margin: 0; }
+
+/* -- CHART CARD -- */
+.chart-card {
+  flex: 1 1 calc(33.333% - 30px);
+  margin: 0 15px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-card-header {
+  margin: -20px 15px 0;
+  border-radius: 3px;
+  padding: 15px;
+  box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(0,0,0,.4);
+}
+.chart-card-header.green { background: linear-gradient(60deg, #66bb6a, #43a047); box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(76,175,80,.4); }
+.chart-card-header.orange { background: linear-gradient(60deg, #ffa726, #fb8c00); box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(255,152,0,.4); }
+.chart-card-header.red { background: linear-gradient(60deg, #ef5350, #e53935); box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(244,67,54,.4); }
+
+.chart-card-header img {
+  width: 100%;
+  display: block;
+  border-radius: 3px;
+}
+
+.chart-card-body {
+  padding: 15px 20px;
+  flex-grow: 1;
+}
+.chart-card-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+}
+.chart-card-description {
+  margin: 5px 0 0;
+  color: #999;
+  font-size: 14px;
+}
+.chart-card-footer {
+  border-top: 1px solid #eee;
+  padding: 10px 20px;
+  color: #999;
+  font-size: 12px;
+}
+.chart-card-footer p { margin: 0; }
+
+/* -- RESPONSIVE & SIDEBAR TOGGLE -- */
+.hamburger-btn {
+    display: block; /* Pastikan tombol ini terlihat jika dirender */
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1001;
+    background: #fff;
+    border-radius: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+.main-panel {
+    margin-left: 260px;
+}
+.dashboard-layout.sidebar-closed .main-panel {
+    margin-left: 0;
+    width: 100%;
+}
+.dashboard-layout.sidebar-closed .sidebar {
+    transform: translateX(-100%);
+}
+
+@media (max-width: 992px) {
+  .main-panel {
+    margin-left: 0;
+    width: 100%;
+  }
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  .dashboard-layout.sidebar-open .sidebar {
+    transform: translateX(0);
+  }
+  .hamburger-btn {
+    display: block; /* Pastikan tombol ini terlihat jika dirender */
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1001;
+    background: #fff;
+    border-radius: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+    }
+  .stats-card, .chart-card {
+    flex-basis: calc(50% - 30px);
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+    .stats-card, .chart-card {
+        flex-basis: calc(100% - 30px);
+    }
+}
